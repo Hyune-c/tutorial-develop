@@ -1,23 +1,21 @@
-server:
-  servlet:
-    context-path: /
-
 spring:
   jackson:
     serialization:
       INDENT_OUTPUT: true
-
   jpa:
     hibernate:
       ddl-auto: create-drop
-
   h2:
     console:
       enabled: true
 
-jwt:
-  base64Secret: ZmQ0ZGI5NjQ0MDQwY2I4MjMxY2Y3ZmI3MjdhN2ZmMjNhODViOTg1ZGE0NTBjMGM4NDA5NzYxMjdjOWMwYWRmZTBlZjlhNGY3ZTg4Y2U3YTE1ODVkZDU5Y2Y3OGYwZWE1NzUzNWQ2YjFjZDc0NGMxZWU2MmQ3MjY1NzJmNTE0MzI=
+server:
+  servlet:
+    context-path: /
 
 logging:
   level:
     org.zerhusen.security: DEBUG
+
+jwt:
+  base64Secret: ZmQ0ZGI5NjQ0MDQwY2I4MjMxY2Y3ZmI3MjdhN2ZmMjNhODViOTg1ZGE0NTBjMGM4NDA5NzYxMjdjOWMwYWRmZTBlZjlhNGY3ZTg4Y2U3YTE1ODVkZDU5Y2Y3OGYwZWE1NzUzNWQ2YjFjZDc0NGMxZWU2MmQ3MjY1NzJmNTE0MzI=

@@ -1,22 +1,25 @@
 package com.example.jwtsecurity.provider.service;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import com.example.jwtsecurity.core.entity.Member;
-import com.example.jwtsecurity.core.repository.MemberRepository;
-import com.example.jwtsecurity.core.security.Role;
-import com.example.jwtsecurity.core.service.dto.MemberDTO;
-import java.util.Optional;
+import com.example.jwtsecurity.common.security.Role;
+import com.example.jwtsecurity.domain.login.service.LoginService;
+import com.example.jwtsecurity.domain.member.entity.Member;
+import com.example.jwtsecurity.domain.member.repository.MemberRepository;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
-@SpringBootTest
+@DisplayName("[service] 로그인")
+@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 class LoginServiceTest {
 
   @Autowired
@@ -25,33 +28,52 @@ class LoginServiceTest {
   @Autowired
   private LoginService loginService;
 
+  @Autowired
+  private PasswordEncoder passwordEncoder;
+
+  @DisplayName("[성공]")
   @Test
-  void loginSuccessTest() {
-    //given
-    memberRepository.save(new Member(1L, "eddy", "$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC",
-        "sieunkr@gmail.com", "ROLE_USER"));
+  void success() {
+    // given
+    String email = "hyune@gmail.com";
+    Role role = Role.USER;
+    String password = "password";
+    memberRepository.save(new Member(1L, passwordEncoder.encode(password), email, role.getCode()));
 
-    String expectedEmail = "sieunkr@gmail.com";
-    String expectedRole = Role.USER.getCode();
+    // when
+    loginService.login(email, "password");
 
-    //when
-    Optional<MemberDTO> m = loginService.login("sieunkr@gmail.com", "password");
-
-    //then
+    // then
     Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
-    assertEquals(expectedEmail, ((User) authentication.getPrincipal()).getUsername());
-    assertEquals(expectedRole, authentication.getAuthorities().stream().findFirst().get().toString());
+    assertThat(email).isEqualTo(((User) authentication.getPrincipal()).getUsername());
+    assertThat(role.getCode()).isEqualTo(authentication.getAuthorities().stream().findFirst().get().toString());
   }
 
+  @DisplayName("[실패] 잘못된 비밀번호")
   @Test
-  void loginFailedTest() {
-    //given, when, then
-    memberRepository.save(new Member(1L, "eddy", "$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC",
-        "sieunkr@gmail.com", "ROLE_USER"));
+  void failed_wrongPassword() {
+    // given
+    String email = "hyune@gmail.com";
+    Role role = Role.USER;
+    String password = "password";
+    memberRepository.save(new Member(1L, passwordEncoder.encode(password), email, role.getCode()));
+    // when
+    assertThrows(BadCredentialsException.class, () -> loginService.login(email, "invalid_password"));
 
-    assertThrows(BadCredentialsException.class, () -> {
-      loginService.login("sieunkr@gmail.com", "invalid_password");
-    });
+    // then
+  }
+
+  @DisplayName("[실패] 존재하지 않는 email")
+  @Test
+  void failed_notExistEmail() {
+    // given
+    String email = "hyune@gmail.com";
+    Role role = Role.USER;
+
+    // when
+    assertThrows(BadCredentialsException.class, () -> loginService.login(email, "invalid_password"));
+
+    // then
   }
 }

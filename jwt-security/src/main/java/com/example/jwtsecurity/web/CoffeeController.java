@@ -1,10 +1,9 @@
 package com.example.jwtsecurity.web;
 
-import com.example.jwtsecurity.core.service.dto.CoffeeDTO;
-import com.example.jwtsecurity.provider.service.CoffeeService;
+import com.example.jwtsecurity.domain.coffee.dto.CoffeeDTO;
+import com.example.jwtsecurity.domain.coffee.service.CoffeeService;
 import java.util.Collections;
 import java.util.List;
-import javax.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +19,8 @@ public class CoffeeController {
   private final CoffeeService coffeeService;
 
   @GetMapping
-  public List<CoffeeDTO> getAllCoffees(HttpSession session) {
-    return coffeeService.findAll().orElse(Collections.emptyList());
+  public List<CoffeeDTO> getAllCoffees() {
+    return coffeeService.findAll()
+        .orElse(Collections.emptyList());
   }
 }

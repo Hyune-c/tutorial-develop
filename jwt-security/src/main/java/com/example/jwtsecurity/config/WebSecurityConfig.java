@@ -1,10 +1,10 @@
 package com.example.jwtsecurity.config;
 
-import com.example.jwtsecurity.core.security.Role;
-import com.example.jwtsecurity.exception.JwtAccessDeniedHandler;
-import com.example.jwtsecurity.exception.JwtAuthenticationEntryPoint;
-import com.example.jwtsecurity.provider.security.JwtAuthTokenProvider;
-import com.example.jwtsecurity.security.JWTConfigurer;
+import com.example.jwtsecurity.common.exception.JwtAccessDeniedHandler;
+import com.example.jwtsecurity.common.exception.JwtAuthenticationEntryPoint;
+import com.example.jwtsecurity.common.security.JwtAuthTokenProvider;
+import com.example.jwtsecurity.common.security.Role;
+import com.example.jwtsecurity.config.security.JWTConfigurer;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;
@@ -34,6 +34,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     httpSecurity
         .csrf().disable()
 
+        // 인증 또는 인가에 실패한 경우 Exception 처리
         .exceptionHandling()
         .authenticationEntryPoint(authenticationErrorHandler)
         .accessDeniedHandler(jwtAccessDeniedHandler)
@@ -43,14 +44,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         .frameOptions()
         .sameOrigin()
 
+        // 세션 기능을 사용하지 않는다
         .and()
         .sessionManagement()
         .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 
+        // 인증 여부와 관계 없이 모두 접근 가능한 API
         .and()
         .authorizeRequests()
         .antMatchers("/api/v1/login/**").permitAll()
+        .antMatchers("/api/v1/members/**").permitAll()
 
+        // User 권한자만 접근 가능한 API
         .antMatchers("/api/v1/coffees/**").hasAnyAuthority(Role.USER.getCode())
         .anyRequest().authenticated()
 
@@ -62,12 +67,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
   public void configure(WebSecurity web) {
     web.ignoring()
         .antMatchers(HttpMethod.OPTIONS, "/**")
-
-        // allow anonymous resource requests
-        .antMatchers(
-            "/",
-            "/h2-console/**"
-        );
+        .antMatchers("/", "/h2-console/**");
   }
 
   private JWTConfigurer securityConfigurerAdapter() {
