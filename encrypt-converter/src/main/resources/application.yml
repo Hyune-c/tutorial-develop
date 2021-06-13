@@ -1,0 +1,16 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: create
+  datasource:
+    url: ${JDBC_URL:jdbc:h2:mem:testdb}
+    driverClassName: org.h2.Driver
+    username: ${JDBC_USERNAME:sa}
+    password: ${JDBC_PASSWORD:}
+  h2:
+    console:
+      enabled: true
+
+application:
+  encryption:
+    encryptionKey: ${ENCRYPTION_KEY:LOCAL__DUMMY_KEY}
