@@ -5,25 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cfb629e4-d480-4862-b634-b7a6e75d91c1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tutorial/ehcache/EhcacheApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tutorial/ehcache/config/CacheManagerCheck.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tutorial/ehcache/member/controller/MemberController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tutorial/ehcache/member/entity/Member.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tutorial/ehcache/member/repository/MemberRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tutorial/ehcache/member/service/MemberFindService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ehcache.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/img.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/tutorial/ehcache/EhcacheApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/tutorial/ehcache/member/service/MemberFindServiceTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../flyway/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mongodb/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mongodb/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mongodb/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mongodb/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mongodb/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mongodb/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mongodb/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mongodb/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mongodb/src/main/java/com/example/mongodb/MongodbApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mongodb/src/main/java/com/example/mongodb/controller/MarketAnalysisController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mongodb/src/main/java/com/example/mongodb/marketanalysis/document/MarketAnalysis.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mongodb/src/main/java/com/example/mongodb/marketanalysis/document/Predict.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mongodb/src/main/java/com/example/mongodb/marketanalysis/repository/MarketAnalysisRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mongodb/src/main/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mongodb/src/main/resources/static/connectByDatagrip.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mongodb/src/main/resources/static/getData.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mongodb/src/main/resources/static/mongoimport.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mongodb/src/test/java/com/example/mongodb/MongodbApplicationTests.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +38,9 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
             <expand />
@@ -48,7 +51,47 @@
     </system>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="feature/ehcache" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitRewordedCommitMessages">
+    <option name="commitMessagesMapping">
+      <RewordedCommitMessageMapping>
+        <option name="originalMessage" value="[ehcache] ✨ ehcache 구성" />
+        <option name="rewordedMessage" value="[ehcache] ✨ ehcache 구성" />
+      </RewordedCommitMessageMapping>
+    </option>
+    <option name="currentCommit" value="1" />
+    <option name="onto" value="e17f013f33877a2f1ef45ae47b510803cb89a328" />
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="feature/mongodb" />
+                    <option name="lastUsedInstant" value="1623483841" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="feature/ehcache" />
+                    <option name="lastUsedInstant" value="1623483840" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$/.." />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
   </component>
   <component name="ProjectId" id="1toL9PyhYiDsSeGkPQqPXltJd61" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -145,11 +188,41 @@
       <option name="presentableId" value="Default" />
       <updated>1623430343981</updated>
       <workItem from="1623430345338" duration="9000" />
-      <workItem from="1623430367103" duration="583000" />
+      <workItem from="1623430367103" duration="1307000" />
     </task>
+    <task id="LOCAL-00001" summary="[ehcache] ✨ ehcache 구성">
+      <created>1623483768323</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1623483768323</updated>
+    </task>
+    <task id="LOCAL-00002" summary="[ehcache] ✨ ehcache 구성">
+      <created>1623483778463</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1623483778463</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="[ehcache] ✨ ehcache 구성" />
+    <option name="LAST_COMMIT_MESSAGE" value="[ehcache] ✨ ehcache 구성" />
   </component>
 </project>
